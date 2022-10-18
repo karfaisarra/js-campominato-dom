@@ -1,0 +1,36 @@
+body{
+    background-color: black;
+}
+.container{
+    width: 70%;
+    margin: 3rem auto;
+    display: flex;
+    flex-wrap: wrap;
+}
+.controle{
+    margin: 3rem 0;
+    text-align: center;
+}
+.btn{
+    padding: 0.5rem 1rem;
+    border-radius: 40px;
+    background-color: pink;
+    color: white;
+}
+.btn:hover{
+    cursor: pointer;
+    background-color: white;
+    color: pink;
+}
+.cella{
+    color: white;
+    width: calc(100% / 10 - 4px);
+    border: 2px solid white;
+    aspect-ratio: 1/1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.azzurro {
+    background-color: lightblue;
+}
