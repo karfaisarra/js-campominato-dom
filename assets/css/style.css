@@ -34,3 +34,10 @@ body{
 .azzurro {
     background-color: lightblue;
 }
+.red {
+    background-color: red;
+}
+h2{
+    color: white;
+    text-align: center;
+}

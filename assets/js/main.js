@@ -4,18 +4,36 @@ function cellsCreation(maxCells, containerEl){
             //nel ciclo for aggiungo le caselle dentro al container
             const cellMarkup = `<div class="cella">${i}</div>`
             containerEl.innerHTML += cellMarkup;
+            
     }
 }
 
-function interazione(elencoCasella) {
+function interazione(elencoCasella, arrayBombs) {
     for (let i = 0; i < elencoCasella.length; i++) {
         const casellaAttuale = elencoCasella[i];
         //console.log(casellaAttuale);
         casellaAttuale.addEventListener('click', function(){
             //console.log('ho cliccato sulla casella');
+
+            // prendere il contenuto della cella
+            const numeroCella = this.innerText;
+            //console.log('contunto cella', numeroCella);
+
+            // verificare se il contenuto esiste nell'array 'bombs'
+            for (let i = 0; i < arrayBombs.length; i++) {
+                const bomb = arrayBombs[i];
+                if (numeroCella == bomb) {
+                    // aggiungere la classe .red a quella cella
+                    casellaAttuale.classList.add('red');
+                    const h2El = document.querySelector('h2').innerHTML=`Hai Perso`;
+                    
+                }
+            }
+
+
             casellaAttuale.classList.toggle('azzurro');
-            console.log(this);
-        })
+            //console.log(this.innerText);
+            
     } 
 }
 
@@ -43,12 +61,8 @@ buttonEl.addEventListener('click', function(){
     containerElement.innerHTML = '';
     cellsCreation(100, containerElement);
     const cellsEl = document.querySelectorAll('.cella');
-    interazione(cellsEl);
-    
+    const bombs = generateBombs(1, 100);
+    interazione(cellsEl, bombs);
+    console.log(bombs);
+
 })
-
-
-
-
-
-
