@@ -6,6 +6,7 @@ function cellsCreation(maxCells, containerEl){
             containerEl.innerHTML += cellMarkup;
     }
 }
+
 function interazione(elencoCasella) {
     for (let i = 0; i < elencoCasella.length; i++) {
         const casellaAttuale = elencoCasella[i];
@@ -17,6 +18,22 @@ function interazione(elencoCasella) {
         })
     } 
 }
+
+function generateRandomNumber(min, max) {
+    return Math.floor(Math.random() * (max - min) ) + min;
+}
+
+function generateBombs(min, max) {
+    const bombs= [];
+    while (bombs.length !== 16) {
+        const bomb = generateRandomNumber(min, max);
+        if (!bombs.includes(bomb)){
+            bombs.push(bomb);
+        }
+    }
+    return bombs;
+}
+
 /* ################################################## */ 
 
 const buttonEl = document.querySelector('.btn');
@@ -27,4 +44,11 @@ buttonEl.addEventListener('click', function(){
     cellsCreation(100, containerElement);
     const cellsEl = document.querySelectorAll('.cella');
     interazione(cellsEl);
+    
 })
+
+
+
+
+
+
